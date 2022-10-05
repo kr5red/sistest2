@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celebration</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+      html {
+        min-height: 100%;
+      }
+      body {
+        padding: 2em;
+        font-family: "Anonymous Pro", monospace;
+        background-color: rgb(25, 25, 25);
+      }
+
+      .container {
+        display: block;
+      }
+
+      .clickme {
+        margin: 10px auto 20px;
+        width: 20%;
+        display: block;
+        outline: none;
+        padding: 10px 0;
+        border: 1px solid #fff;
+        cursor: pointer;
+        background: transparent;
+        color: #fff;
+        font-size: 16px;
+        transition: opacity 0.2s;
+      }
+
+      .clickme:hover {
+        cursor: pointer;
+        background: #56050c;
+      }
+
+      .dance {
+        text-align: center;
+        width: 1200px;
+        height: 335px;
+        background: url("pic.png");
+        animation: dancing 10s steps(20, start) infinite;
+        animation-direction: normal, alternate;
+      }
+      @keyframes dancing {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -5175px 0;
+        }
+      }
+      @keyframes movearound {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(600px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="startAnimation()" class="clickme">Click me!</button>
+      <div id="dancing-animation"></div>
+      </div>
+    </div>
+    <script>
+      function startAnimation() {
+        var element = document.getElementById("dancing-animation");
+        element.classList.toggle("dance");
+      }
+
+      const audio = new Audio("music.mp3");
+      const buttons = document.querySelectorAll(".clickme");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          audio.play();
+        });
+        });
+    </script>
+  </body>
+</html>
